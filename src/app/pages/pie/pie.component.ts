@@ -11,9 +11,8 @@ import { BaseChartDirective } from 'ng2-charts';
 export class PieComponent {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
-  // Pie
   public pieChartOptions: ChartConfiguration['options'] = {
-    responsive: true,
+    responsive: false,
     plugins: {
       legend: {
         display: true,
@@ -28,10 +27,12 @@ export class PieComponent {
       },
     }
   };
+
   public pieChartData: ChartData<'pie', number[], string | string[]> = {
-    labels: [ [ 'Download', 'Sales' ], [ 'In', 'Store', 'Sales' ], 'Mail Sales' ],
+    labels: [ "Italy","Spain","ited Kingdom", "Germany", "United Sta", "France" ],
     datasets: [ {
-      data: [ 300, 500, 100 ]
+      data: [ 300, 200, 350, 240, 270 ],
+      
     } ]
   };
   public pieChartType: ChartType = 'pie';
