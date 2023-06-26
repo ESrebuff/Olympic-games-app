@@ -7,11 +7,15 @@ import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { NgChartsModule } from 'ng2-charts';
 import { PieComponent } from './pages/pie/pie.component';
-import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, NotFoundComponent, PieComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgChartsModule, MatDividerModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    NgChartsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
