@@ -1,17 +1,17 @@
 <ngx-charts-pie-chart
   [view]="view"
-  [results]="data"
+  [results]="chartData"
   [labels]="true"
   [maxLabelLength]="100"
   [animations]="animations"
   (select)="onSelect($event)"
-  (activate)="onActivate($event)"
-  (deactivate)="onDeactivate($event)"
   class="custom-tooltip custom-label"
 >
   <ng-template #tooltipTemplate let-model="model">
     <div class="custom-tooltip">
-      <p><strong>{{ model.name }}</strong></p>
+      <p>
+        <strong>{{ model.name }}</strong>
+      </p>
       <p><i class="fa-solid fa-award"></i> {{ model.value }}</p>
     </div>
   </ng-template>
