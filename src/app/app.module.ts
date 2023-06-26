@@ -5,13 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { PieChartComponent } from './app/pie-chart/pie-chart.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { PieChartComponent } from './shared/components/pie-chart/pie-chart.component';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, NotFoundComponent, PieChartComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgxChartsModule, BrowserModule],
   providers: [],
   bootstrap: [AppComponent],
+  exports: [
+    PieChartComponent
+  ],
 })
 export class AppModule {}
