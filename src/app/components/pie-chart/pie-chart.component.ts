@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Olympic } from 'src/app/core/models/Olympic';
 
 interface ChartData {
@@ -7,7 +8,7 @@ interface ChartData {
   extra: {
     id: number;
   };
-}
+};
 @Component({
   selector: 'app-pie-chart',
   templateUrl: './pie-chart.component.html',
@@ -16,6 +17,8 @@ interface ChartData {
 export class PieChartComponent implements OnInit {
   @Input() olympics!: Olympic[] | null;
 
+  constructor(private router: Router) {}
+
   public chartData: ChartData[] = [];
 
   public view: [number, number] = [700, 400];
@@ -23,9 +26,6 @@ export class PieChartComponent implements OnInit {
   public animations: boolean = true;
 
   ngOnInit(): void {
-  }
-
-  ngOnChanges(): void {
     this.updateChartData();
   }
 
@@ -42,7 +42,6 @@ export class PieChartComponent implements OnInit {
   }
 
   onSelect(event: Event): void {
-    console.log('Item clicked', JSON.parse(JSON.stringify(event)).extra.id);
-
+    this.router.navigateByUrl(`${JSON.parse(JSON.stringify(event)).extra.id}`);
   }
 }

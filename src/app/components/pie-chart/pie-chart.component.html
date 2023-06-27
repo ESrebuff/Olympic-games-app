@@ -5,14 +5,12 @@
   [maxLabelLength]="100"
   [animations]="animations"
   (select)="onSelect($event)"
-  class="custom-tooltip custom-label"
+  class="custom-label"
 >
   <ng-template #tooltipTemplate let-model="model">
     <div class="custom-tooltip">
-      <p>
-        <strong>{{ model.name }}</strong>
-      </p>
-      <p><i class="fa-solid fa-award"></i> {{ model.value }}</p>
+        <p>{{ model.name }}</p>
+        <p class="medals"><i class="fa-solid fa-award"></i> {{ model.value }}</p>
     </div>
   </ng-template>
 </ngx-charts-pie-chart>
