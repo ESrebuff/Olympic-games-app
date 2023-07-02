@@ -1,10 +1,42 @@
-.custom-tooltip {
-  margin: -12px -10px;
-  padding: 5px 10px;
-  font-weight: bold;
-  border-radius: 2px;
-}
+::ng-deep {
+  ngx-charts-pie-chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-.medals {
-  margin-top: -10px;
+  .custom-label text {
+    font-size: 25px;
+  }
+
+  .custom-tooltip {
+    background-color: #04838f;
+    color: #fff;
+    font-size: 20px;
+    padding: 10px 15px 10px 15px;
+    margin: 0px -15px 0px -15px;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+    
+    p {
+      font-size: 1.1em;
+      margin: 0px;
+
+      i {
+        font-size: 0.8em;
+      }
+    }
+
+    &::before {
+      content: "";
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 15px solid #04838f;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9000;
+    }
+  }
 }

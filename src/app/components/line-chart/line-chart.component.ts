@@ -13,15 +13,15 @@ export class LineChartComponent {
   constructor(private router: Router) {}
 
   public chartData!: any[];
-  public view: [number, number] = [700, 400];
+  public view: [number, number] = [800, 430];
   public showXAxis: boolean  = true;
   public showYAxis: boolean  = true;
   public showXAxisLabel: boolean  = true;
   public showYAxisLabel: boolean = true;
-  public xAxisLabel:string = "Dates";
 
   ngOnInit(): void {
     this.updateChartData();
+    this.updateViewSize();
   }
 
   private updateChartData(): void {
@@ -33,6 +33,14 @@ export class LineChartComponent {
           value: participation.medalsCount.toString()
         }))
       }]
+    }
+  }
+
+  private updateViewSize(): void {
+    const windowWidth = window.innerWidth;
+    console.log(windowWidth * 0.8);
+    if (windowWidth * 0.8 <= 800) {
+      this.view = [windowWidth * 0.8, 430];
     }
   }
 

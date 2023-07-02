@@ -21,12 +21,13 @@ export class PieChartComponent implements OnInit {
 
   public chartData: ChartData[] = [];
 
-  public view: [number, number] = [700, 400];
+  public view: [number, number] = [650, 650];
 
   public animations: boolean = true;
 
   ngOnInit(): void {
     this.updateChartData();
+    this.updateViewSize();
   }
 
   private updateChartData(): void {
@@ -43,5 +44,12 @@ export class PieChartComponent implements OnInit {
 
   onSelect(event: Event): void {
     this.router.navigateByUrl(`${JSON.parse(JSON.stringify(event)).extra.id}`);
+  }
+
+  private updateViewSize(): void {
+    const windowWidth = window.innerWidth;
+    if (windowWidth * 0.8 <= 650) {
+      this.view = [windowWidth * 0.8, 650];
+    }
   }
 }
