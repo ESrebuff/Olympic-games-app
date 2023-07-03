@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ChartData } from 'src/app/core/models/ChartData';
+import { PieChart } from 'src/app/core/models/ChartData';
 import { Olympic } from 'src/app/core/models/Olympic';
 
 @Component({
@@ -13,7 +13,7 @@ export class PieChartComponent implements OnInit {
 
   constructor(private router: Router) {}
 
-  public chartData: ChartData[] = [];
+  public chartData: PieChart[] = [];
 
   public view: [number, number] = [650, 650];
 
@@ -24,15 +24,25 @@ export class PieChartComponent implements OnInit {
     this.updateViewSize();
   }
 
-  private updateChartData(): void {
+  updateChartData(): void {
     if (this.olympics) {
       this.chartData = this.olympics.map((item) => ({
         name: item.country,
-        value: item.participations.reduce((total, participation) => total + participation.medalsCount, 0),
+        value: item.participations.reduce(
+          (total, participation) => total + participation.medalsCount,
+          0
+        ),
         extra: {
           id: item.id,
         },
       }));
+    }
+  }
+
+  updateViewSize(): void {
+    const windowWidth = window.innerWidth;
+    if (windowWidth * 0.8 <= 650) {
+      this.view = [windowWidth * 0.8, 650];
     }
   }
 
@@ -41,16 +51,9 @@ export class PieChartComponent implements OnInit {
   }
 
   onResize(event: UIEvent) {
-    const windowWidth = event.target as Window; 
+    const windowWidth = event.target as Window;
     if (windowWidth.innerWidth * 0.8 <= 650) {
       this.view = [windowWidth.innerWidth * 0.8, 650];
-    }
-  }
-
-  private updateViewSize(): void {
-    const windowWidth = window.innerWidth;
-    if (windowWidth * 0.8 <= 650) {
-      this.view = [windowWidth * 0.8, 650];
     }
   }
 }
