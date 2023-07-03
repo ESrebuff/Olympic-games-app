@@ -1,0 +1,30 @@
+.center-flex-box {
+    flex-direction: row;
+}
+
+.title {
+    text-align: center;
+    background: #04838f;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-weight: inherit;
+    color: #fff;
+}
+
+.section {
+    border: 2px solid #04838f;
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+
+    .string{
+        color: #666;
+    }
+
+    .number{
+        color: #000;
+        font-weight: bold;
+    }
+}

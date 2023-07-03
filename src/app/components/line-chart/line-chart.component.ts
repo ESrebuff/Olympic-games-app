@@ -46,7 +46,7 @@ export class LineChartComponent {
   private updateViewSize(): void {
     const windowWidth = window.innerWidth;
     if (windowWidth * 0.8 <= 800) {
-      this.view = [windowWidth * 0.8, 650];
+      this.view = [windowWidth * 0.8, 430];
     }
   }
 

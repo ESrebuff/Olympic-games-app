@@ -1,5 +1,9 @@
-<h1>{{ title }}</h1>
-<div *ngFor="let test of headerData">
-    <p>{{ test.name}}</p>
-    <p>{{ test.number}}</p>
+<div class="center-flex-box">
+  <h1 class="title">{{ title }}</h1>
+</div>
+<div class="center-flex-box">
+  <div *ngFor="let test of headerData" class="section">
+    <p class="string">{{ test.name }}</p>
+    <p class="number">{{ test.number }}</p>
+  </div>
 </div>
