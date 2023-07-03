@@ -1,14 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ChartData } from 'src/app/core/models/ChartData';
 import { Olympic } from 'src/app/core/models/Olympic';
 
-interface ChartData {
-  name: string;
-  value: number;
-  extra: {
-    id: number;
-  };
-};
 @Component({
   selector: 'app-pie-chart',
   templateUrl: './pie-chart.component.html',
@@ -44,6 +38,13 @@ export class PieChartComponent implements OnInit {
 
   onSelect(event: Event): void {
     this.router.navigateByUrl(`${JSON.parse(JSON.stringify(event)).extra.id}`);
+  }
+
+  onResize(event: UIEvent) {
+    const windowWidth = event.target as Window; 
+    if (windowWidth.innerWidth * 0.8 <= 650) {
+      this.view = [windowWidth.innerWidth * 0.8, 650];
+    }
   }
 
   private updateViewSize(): void {

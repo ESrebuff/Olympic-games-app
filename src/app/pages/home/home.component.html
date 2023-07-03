@@ -1,2 +1,2 @@
-<app-header></app-header>
+<app-header [title]="'Medals per Country'" [headerData]="headerData"></app-header>
 <app-pie-chart *ngIf="olympics$ | async" [olympics]="olympics$ | async"></app-pie-chart>

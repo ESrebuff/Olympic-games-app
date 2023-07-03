@@ -36,11 +36,17 @@ export class LineChartComponent {
     }
   }
 
+  onResize(event: UIEvent) {
+    const windowWidth = event.target as Window; 
+    if (windowWidth.innerWidth * 0.8 <= 430) {
+      this.view = [windowWidth.innerWidth * 0.8, 430];
+    }
+  }
+
   private updateViewSize(): void {
     const windowWidth = window.innerWidth;
-    console.log(windowWidth * 0.8);
     if (windowWidth * 0.8 <= 800) {
-      this.view = [windowWidth * 0.8, 430];
+      this.view = [windowWidth * 0.8, 650];
     }
   }
 

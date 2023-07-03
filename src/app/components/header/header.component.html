@@ -1,1 +1,5 @@
-<p>header works!</p>
+<h1>{{ title }}</h1>
+<div *ngFor="let test of headerData">
+    <p>{{ test.name}}</p>
+    <p>{{ test.number}}</p>
+</div>
