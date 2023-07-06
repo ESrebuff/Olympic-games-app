@@ -18,20 +18,22 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.olympics$ = this.olympicService.getOlympics();
     this.olympics$.subscribe((olympics) => {
-      this.headerData = [
-        {
-          name: 'Number of JOs',
-          number: [
-            ...new Set(
-              olympics!.flatMap((be) => be.participations.map((se) => se.year))
-            ),
-          ].length,
-        },
-        {
-          name: 'Number of countries',
-          number: olympics!.map((elt) => elt.country).length,
-        },
-      ];
+      if (olympics !== null) {
+        this.headerData = [
+          {
+            name: 'Number of JOs',
+            number: [
+              ...new Set(
+                olympics!.flatMap((be) => be.participations.map((se) => se.year))
+              ),
+            ].length,
+          },
+          {
+            name: 'Number of countries',
+            number: olympics!.map((elt) => elt.country).length,
+          },
+        ];
+      }
     });
   }
 }
