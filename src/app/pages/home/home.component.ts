@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, take } from 'rxjs';
 import { HeaderData } from 'src/app/core/models/HeaderData';
 import { Olympic } from 'src/app/core/models/Olympic';
 import { OlympicService } from 'src/app/core/services/olympic.service';
@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.olympics$ = this.olympicService.getOlympics();
-    this.olympics$.subscribe((olympics) => {
+    this.olympics$.pipe(take(2)).subscribe((olympics) => {
       if (olympics !== null) {
         this.headerData = [
           {

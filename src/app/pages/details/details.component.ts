@@ -24,7 +24,7 @@ export class DetailsComponent implements OnInit {
   ngOnInit(): void {
     const olympicId = +this.route.snapshot.params['id'];
     this.olympic$ = this.olympicService.getOlympicById(olympicId);
-    this.olympic$.subscribe((olympic) => {
+    this.olympic$.pipe(take(2)).subscribe((olympic) => {
       if (olympic === null && this.hasValue) {
         this.router.navigateByUrl('/not-found');
       } else {
