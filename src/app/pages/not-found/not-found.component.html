@@ -1,4 +1,10 @@
 <div class="center-flex-box">
-  <h2>No corresponding page found</h2>
-  <a routerLink="">Go back</a>
+    <div *ngIf="error; else noError">
+      <h1>{{ error.status }}</h1>
+      <p>An error occurred while loading the page.</p>
+    </div>
+    <ng-template #noError>
+      <h1>No corresponding page found</h1>
+      <a routerLink="">Go back</a>
+    </ng-template>
 </div>

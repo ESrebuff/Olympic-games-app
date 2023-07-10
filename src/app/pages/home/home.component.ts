@@ -22,11 +22,7 @@ export class HomeComponent implements OnInit {
         this.headerData = [
           {
             name: 'Number of JOs',
-            number: [
-              ...new Set(
-                olympics!.flatMap((be) => be.participations.map((se) => se.year))
-              ),
-            ].length,
+            number: [...new Set(olympics!.flatMap((be) => be.participations.map((se) => se.year)))].length,
           },
           {
             name: 'Number of countries',
