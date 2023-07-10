@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpErrorResponseInterface } from 'src/app/core/models/Error';
-import { ErrorHttpService } from 'src/app/core/services/errorHttp.service';
+import { ErrorService } from 'src/app/core/services/error.service';
 
 @Component({
   selector: 'app-not-found',
@@ -10,7 +10,7 @@ import { ErrorHttpService } from 'src/app/core/services/errorHttp.service';
 export class NotFoundComponent {
   error!: HttpErrorResponseInterface;
 
-  constructor(private errorService: ErrorHttpService) {}
+  constructor(private errorService: ErrorService) {}
 
   ngOnInit() {
     this.error = this.errorService.getErrorHttp();

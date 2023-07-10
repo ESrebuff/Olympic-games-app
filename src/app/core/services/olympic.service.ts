@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 import { Olympic } from '../models/Olympic';
 import { Router } from '@angular/router';
-import { ErrorHttpService } from './errorHttp.service';
+import { ErrorService } from './error.service';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +13,7 @@ export class OlympicService {
   private olympicUrl = './assets/mock/olympic.json';
   private olympics$ = new BehaviorSubject<Olympic[] | null>(null);
 
-  constructor(private http: HttpClient, private router: Router, private errorHttpService: ErrorHttpService) {}
+  constructor(private http: HttpClient, private router: Router, private errorService: ErrorService) {}
 
   loadInitialData(): Observable<Olympic[]>{
     return this.http.get<Olympic[]>(this.olympicUrl).pipe(
@@ -21,7 +21,7 @@ export class OlympicService {
       catchError((error) => {
         console.error(error);
         this.olympics$.next(null);
-        this.errorHttpService.setErrorHttp(error);
+        this.errorService.setErrorHttp(error);
         this.router.navigate(['/not-found']);
         return throwError('Something went wrong, an error occurred while loading Olympic data');
       })

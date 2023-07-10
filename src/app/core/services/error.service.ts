@@ -4,7 +4,7 @@ import { HttpErrorResponseInterface } from '../models/Error';
 @Injectable({
   providedIn: 'root',
 })
-export class ErrorHttpService {
+export class ErrorService {
   private errorHttp!: HttpErrorResponseInterface;
 
   setErrorHttp(errorHttp: HttpErrorResponseInterface) {
