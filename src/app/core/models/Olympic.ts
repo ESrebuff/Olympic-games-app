@@ -1,9 +1,7 @@
 import { Participation } from './Participation';
 
-export class Olympic {
-  constructor(
-    public id: number,
-    public country: string,
-    public participations: Array<Participation>
-  ) {}
+export interface Olympic {
+  id: number;
+  country: string;
+  participations: Array<Participation>;
 }
