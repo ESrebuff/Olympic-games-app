@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { LineChart } from 'src/app/core/models/ChartData';
+import { LineChart } from 'src/app/core/models/NgxChartData';
 import { Olympic } from 'src/app/core/models/Olympic';
 
 @Component({

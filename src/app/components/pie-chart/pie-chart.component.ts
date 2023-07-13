@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PieChart } from 'src/app/core/models/ChartData';
+import { PieChart } from 'src/app/core/models/NgxChartData';
 import { Olympic } from 'src/app/core/models/Olympic';
 
 @Component({
