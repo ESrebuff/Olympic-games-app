@@ -13,13 +13,14 @@ import { HeaderData } from 'src/app/core/models/HeaderData';
 export class DetailsComponent implements OnInit {
   public olympic$!: Observable<Olympic | null>;
   public headerData!: HeaderData[];
+  public title!: string;
   private hasValue = false;
 
   constructor(
     private olympicService: OlympicService,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     const olympicId = +this.route.snapshot.params['id'];
@@ -28,6 +29,7 @@ export class DetailsComponent implements OnInit {
       if (olympic === null && this.hasValue) {
         this.router.navigateByUrl('/not-found');
       } else {
+        this.title = olympic!.country;
         this.hasValue = true;
         this.headerData = [
           {

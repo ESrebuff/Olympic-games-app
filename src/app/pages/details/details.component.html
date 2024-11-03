@@ -1,5 +1,4 @@
-<app-header [title]="'Name of the Country'" [headerData]="headerData">
-</app-header>
+<app-header [title]="title" [headerData]="headerData"> </app-header>
 <app-line-chart *ngIf="olympic$ | async" [olympic]="olympic$ | async">
 </app-line-chart>
 <button routerLink="/" class="btn-back">retour</button>

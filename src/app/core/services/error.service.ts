@@ -7,11 +7,11 @@ import { HttpErrorResponseInterface } from '../models/Error';
 export class ErrorService {
   private errorHttp!: HttpErrorResponseInterface;
 
-  setErrorHttp(errorHttp: HttpErrorResponseInterface) {
+  setErrorHttp(errorHttp: HttpErrorResponseInterface): void {
     this.errorHttp = errorHttp;
   }
 
-  getErrorHttp() {
+  getErrorHttp(): HttpErrorResponseInterface {
     return this.errorHttp;
   }
 }

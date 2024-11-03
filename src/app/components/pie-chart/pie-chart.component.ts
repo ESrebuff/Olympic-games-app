@@ -50,7 +50,7 @@ export class PieChartComponent implements OnInit {
     this.router.navigateByUrl(`${JSON.parse(JSON.stringify(event)).extra.id}`);
   }
 
-  onResize(event: UIEvent) {
+  onResize(event: UIEvent): void {
     const windowWidth = event.target as Window;
     if (windowWidth.innerWidth * 0.8 <= 650) {
       this.view = [windowWidth.innerWidth * 0.8, 650];
